@@ -38,8 +38,6 @@ define(function(require, exports, module){
 
     HintProvider.prototype.insertHint = function ($hintObj) {
         this.hintManager.ternHints.insertHint($hintObj.data("token"), this.hints);
-
-
         // Return false to indicate that another hinting session is not needed
         return false;
     };

@@ -56,19 +56,12 @@ define(function (require, exports, module) {
         if (_self.newSession) {
             _self._cm = cm;
         }
+        cm = _self._cm;
 
         if (!_char || HintHelper.maybeIdentifier(_char)) {
-            cm = _self._cm;
+            
             var cursor = cm.getCursor();
             var token = cm.getTokenAt(cursor);
-
-            //
-            // Support for inner mode.  Not enabled yet... Need testing.
-            //
-            //var mode = CodeMirror.innerMode(cm.getMode(), token.state).mode;
-            //if ( mode.name !== "javascript" ) {
-            //    return false;
-            //}
 
             return HintHelper.hintable(token);
         }
